@@ -20,6 +20,9 @@ public class Biblioteka implements BibliotekaInterfejs {
 			String izdavac, Autor autor) {
 		LinkedList<Knjiga> rezultat = new LinkedList<Knjiga>();
 		
+		if (naslov == null && ISBN <= 0 && izdavac == null && autor == null)
+			throw new RuntimeException("Morate uneti bar jedan podatak za pretragu");
+		
 		if (ISBN > 0) {
 			for (int i = 0; i < knjige.size(); i++) {
 				if (knjige.get(i).getISBN() == ISBN)
