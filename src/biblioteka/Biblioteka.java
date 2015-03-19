@@ -32,10 +32,12 @@ public class Biblioteka implements BibliotekaInterfejs {
 			String izdavac, Autor autor) {
 		LinkedList<Knjiga> rezultat = new LinkedList<Knjiga>();
 		
+		// ne moraju da se unesu svi podaci za pretragu ako ih ne znamo, mozemo i da ih ostavimo da budu null
+		// ipak moramo bar jedan podatak da unesemo
 		if (naslov == null && ISBN <= 0 && izdavac == null && autor == null)
+			// imali smo opciju da vratimo sve knjige ili da bacimo izuzetak
 			return knjige;
 
-		
 		if (ISBN > 0) {
 			for (int i = 0; i < knjige.size(); i++) {
 				if (knjige.get(i).getISBN() == ISBN)
